@@ -14,7 +14,7 @@ const deliveriesController = require('./controllers/deliveryController')
 ///////////////////////////////
 // DATABASE CONNECTION
 ////////////////////////////////
-mongoose.connect('mongodb+srv://josh:josh@intro.hgxj1cg.mongodb.net/?retryWrites=true&w=majority')
+mongoose.connect(MONGODB_URI)
 // Connection Events
 mongoose.connection
 .on("open", () => console.log("Your are connected to mongoose"))
