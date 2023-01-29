@@ -1,8 +1,10 @@
 const mongoose = require('mongoose')
 require('dotenv').config()
 
+
 const connectionStr = process.env.MONGODB_URI
-const connection = mongoose.connect(connectionStr)
+
+mongoose.connect(connectionStr)
 
 
 mongoose.connection.on('connected', () => {
@@ -17,4 +19,3 @@ mongoose.connection.on('connected', () => {
   
 
   
-  module.exports = connection
