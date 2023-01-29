@@ -1,5 +1,6 @@
 require('dotenv').config()
 const {MONGODB_URI} = process.env
+const methodOverride = require('method-override')
 const express = require('express');
 const app = express();
 const PORT = 4000;
@@ -14,7 +15,7 @@ const deliveriesController = require('./controllers/deliveryController')
 ///////////////////////////////
 // DATABASE CONNECTION
 ////////////////////////////////
-mongoose.connect(MONGODB_URI)
+mongoose.connect('MONGODB_URI')
 // Connection Events
 mongoose.connection
 .on("open", () => console.log("Your are connected to mongoose"))
@@ -24,6 +25,7 @@ mongoose.connection
 
 //Middleware
 app.use(express.json())
+app.use(methodOverride('_method'))
 app.use('/deliveries', deliveriesController)
 
 
