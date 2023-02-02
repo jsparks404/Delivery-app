@@ -32,6 +32,14 @@ router.get('/:id', async (req, res) => {
     }
 })
 
+router.delete('/:id', async (req, res) => {
+    try {
+        const foundDelivery = await Deliveries.findByIdAndDelete(req.params.id)
+    } catch(err) {
+        res.status(400).json(err)
+    }
+})
+
 
 
 module.exports = router
