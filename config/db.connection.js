@@ -2,9 +2,9 @@ const mongoose = require('mongoose')
 require('dotenv').config()
 
 
-const connectionStr = process.env.MONGODB_URI
+const MONGODB_URI = process.env.MONGODB_URI || URL
 
-mongoose.connect(connectionStr)
+mongoose.connect(MONGODB_URI)
 
 
 mongoose.connection.on('connected', () => {
